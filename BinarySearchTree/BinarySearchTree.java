@@ -9,6 +9,10 @@ public class BinarySearchTree<Item extends Comparable<Item>> {
     private int size;
     private LinkedBlockingQueue<Node> queue = new LinkedBlockingQueue<Node>();
 
+    /**
+     *  Adds a Item in the binary search tree.
+     * @param item The item to be added.
+     */
     public void add(Item item) {
         Node fresh = new Node();
         fresh.item = item;
@@ -24,6 +28,12 @@ public class BinarySearchTree<Item extends Comparable<Item>> {
     }
 
 
+    /**
+     * Removes a specified Item from the binary search tree.
+     * The compareTo method is be used.
+     * @param item The Item to be removed.
+     * @return true if the item has been found and removed successfully, otherwise false.
+     */
     public boolean remove(Item item) {
         boolean res = remove(find(item));
         if(res) {
@@ -76,6 +86,11 @@ public class BinarySearchTree<Item extends Comparable<Item>> {
         return true;
     }
 
+    /**
+     * Check whether the Item is contained in the binary search tree.
+     * @param item The Item to be checked if exist in the bst.
+     * @return true if the item exist in the bst, false otherwise
+     */
     private boolean contains(Item item) {
         return find(item).child != null;
     }
@@ -153,14 +168,26 @@ public class BinarySearchTree<Item extends Comparable<Item>> {
         }
     }
 
+    /**
+     * Retuns the number of elements in the bst.
+     * @return the number of elements.
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Check whether the bst has no elements.
+     * @return true if this collection contains no elements.
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * Traverse the bst in levelorder
+     * @param action The action to be performed.
+     */
     public void levelOrder(Actionator<Item> action) {
         levelOrder(root, action);
     }
@@ -183,7 +210,7 @@ public class BinarySearchTree<Item extends Comparable<Item>> {
         Node child;
     }
 
-    public class Node implements Comparable<Node> {
+    private class Node implements Comparable<Node> {
         Node left;
         Node right;
         Item item;
