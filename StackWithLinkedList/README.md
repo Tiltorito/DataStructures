@@ -1,4 +1,4 @@
-# Union
+# Stack With Linked List
 
 ## Public methods
 
