@@ -4,10 +4,14 @@ import java.util.Iterator;
 /**
  * Created by Μπάμπης Μπιλλίνης on 19/5/2017.
  */
-public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable<Item> {
+public class SortedDoubleLinkedList<Item extends Comparable<Item>> implements Iterable<Item> {
     private Node first;
     private int size;
 
+    /**
+     * Adds the specified item in the list.
+     * @param item the item be added.
+     */
     public void add(Item item) {
         if(first == null) { // or if isEmpty()
             first = new Node();
@@ -45,6 +49,10 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         size++;
     }
 
+    /**
+     * Traverse the LinkedList and perform a action in each element.
+     * @param action the action to be perfomed.
+     */
     public void traverse(Actionator<Item> action) {
         Node curr = first;
 
@@ -54,6 +62,11 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         }
     }
 
+    /**
+     * Removes a specified Item from the list.
+     * @param item the Item to be removed.
+     * @return true if the remove operation was successful, false otherwise.
+     */
     public boolean remove(Item item) {
         Node curr = first;
 
@@ -69,6 +82,11 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         return true;
     }
 
+    /**
+     * Removes the Item in the index possition.
+     * @param index the possition of the item isnide the list (starting at index 0)
+     * @return always true, throw exception in case which the index does not exist.
+     */
     public boolean remove(int index) {
         rangeCheck(index);
 
@@ -97,14 +115,27 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         size--;
     }
 
+    /**
+     *
+     * @return the size of the list.
+     */
     public int size() {
         return size;
     }
 
+    /**
+     *
+     * @return true if the list contains no elements.
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * Returns the index of the first specified Item inside the list.
+     * @param item the item to be searched for.
+     * @return the index of the item, -1 if could not be found.
+     */
     public int indexOf(Item item) {
         return indexOf(item, new Comparator<Item>() {
             @Override
@@ -114,6 +145,12 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         });
     }
 
+    /**
+     * Returns the index of the first specified Item inside the list using Custom Compartor.
+     * @param item the item to be searched for.
+     * @param comp the custom comparator.
+     * @return the index of the first specified item if could be found. -1 if it could not be found.
+     */
     public int indexOf(Item item, Comparator<Item> comp) {
         Node curr = first;
 
@@ -132,6 +169,9 @@ public class DoubleLinkedList<Item extends Comparable<Item>> implements Iterable
         return index;
     }
 
+    /**
+     * @return Iterator for the List
+     */
     @Override
     public Iterator<Item> iterator() {
         return new ListIterator();
