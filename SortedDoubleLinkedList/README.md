@@ -24,5 +24,5 @@ Removes a specified Item from the list.
 int	size()
 Returns the number of elements inside the list.
 
-void	traverse(Actionator<Item> action)
+void	traverse(Actionator<Item> action) 
 Traverse the LinkedList and perform a action in each element.
