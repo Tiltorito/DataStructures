@@ -16,11 +16,11 @@ Returns true if list is empty.
 
 java.util.Iterator<Item>	iterator() 
 boolean	remove(int index)
-
 Removes the Item in the index possition.
-boolean	remove(Item item)
 
+boolean	remove(Item item)
 Removes a specified Item from the list.
+
 int	size()
 Returns the number of elements inside the list.
 
