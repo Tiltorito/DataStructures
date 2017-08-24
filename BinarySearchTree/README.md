@@ -17,4 +17,4 @@ int	size()
 Retuns the number of elements in the binary search tree.
 
 ## TO-DO
-I have to add more method for traversing the collection.
+I have to add more methods for traversing the collection.
