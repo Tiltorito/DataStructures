@@ -1,6 +1,4 @@
-# DataStructures
-
-Binary Search Tree
+# Binary Search Tree
 
 ## Public methods
 void	add(Item item)   
@@ -17,3 +15,6 @@ Removes a specified Item from the binary search tree.
  
 int	size()   
 Retuns the number of elements in the binary search tree.
+
+## TO-DO
+I have to add more method for traversing the collection.
