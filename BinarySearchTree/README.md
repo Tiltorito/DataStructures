@@ -2,7 +2,7 @@
 
 Binary Search Tree
 
-# Public methods
+## Public methods
 void	add(Item item)
 Adds a Item in the binary search tree.
 
